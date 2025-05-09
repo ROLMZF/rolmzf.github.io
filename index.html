@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Qualità dell'Aria a Chongqing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="relative h-screen overflow-hidden">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="fixed top-0 left-0 w-full h-full object-cover z-[-1]">
+    <source src="video/video.mp4" type="video/mp4">
+    Il tuo browser non supporta il tag video.
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute w-full h-full bg-black bg-opacity-50"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Qualità dell'Aria a Chongqing</h1>
+    <p class="text-lg md:text-2xl mb-8">Esplora l'evoluzione dell'inquinamento atmosferico dal 1980 al 2020</p>
+    <div class="glass p-4 rounded-lg">
+      <nav class="flex flex-wrap justify-center space-x-4 text-lg mb-4">
+        <a href="statistiche-1980.html" class="hover:underline">1980</a>
+        <a href="statistiche-1990.html" class="hover:underline">1990</a>
+        <a href="statistiche-2000.html" class="hover:underline">2000</a>
+        <a href="statistiche-2010.html" class="hover:underline">2010</a>
+        <a href="statistiche-2020.html" class="hover:underline">2020</a>
+      </nav>
+      <!-- Timelapse Button -->
+      <a href="timelapse.html" class="inline-block mt-2 bg-white text-blue-900 font-semibold px-6 py-3 rounded-xl shadow-lg backdrop-blur-md transition hover:bg-blue-700 hover:text-white">
+        Guarda la Trasformazione Urbana (1980–2020)
+      </a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Statistiche 2020 - Chongqing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+  <div class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+    <h1 class="text-4xl text-center font-extrabold text-blue-800">Statistiche Cittadine – Chongqing 2020</h1>
+    
+    <div class="glass p-6 rounded-2xl">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Qualità dell'Aria</h2>
+      <ul class="space-y-2 text-lg">
+        <li><strong>PM2.5:</strong> 36.5 µg/m³</li>
+        <li><strong>PM10:</strong> 57 µg/m³</li>
+        <li><strong>NO₂:</strong> 40 µg/m³</li>
+        <li><strong>SO₂:</strong> 8 µg/m³</li>
+        <li><strong>O₃:</strong> 14.5 µg/m³</li>
+      </ul>
+      <p class="mt-4 text-sm text-gray-600">
+        <em>Nota: Questi valori sono basati su dati del 2020. La qualità dell'aria è stata classificata come "Non salutare per gruppi sensibili" con un AQI di 103.</em>
+      </p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-6">Grafico: Principali Inquinanti nel 2020</h2>
+      <canvas id="pollutionChart2020" height="280"></canvas>
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('pollutionChart2020').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['PM2.5', 'PM10', 'NO₂', 'SO₂', 'O₃'],
+        datasets: [{
+          label: 'Concentrazione (µg/m³)',
+          data: [36.5, 57, 40, 8, 14.5],
+          backgroundColor: [
+            '#3b82f6',
+            '#10b981',
+            '#f59e0b',
+            '#ef4444',
+            '#8b5cf6'
+          ],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'µg/m³'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
