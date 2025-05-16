@@ -26,7 +26,11 @@
 <body class="text-gray-800">
   <div class="max-w-4xl mx-auto px-6 py-12 space-y-12">
     <h1 class="text-4xl text-center font-extrabold text-blue-800">Statistiche Cittadine – Chongqing 2020</h1>
-    
+    <img src="images/2020.png" alt="Chongqing 2020" id="img2020" class="mx-auto my-6 rounded-lg shadow-lg max-w-full h-auto cursor-zoom-in">
+    <!-- Modal per l'immagine ingrandita -->
+    <div id="modalImg2020" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+      <img src="images/2020.png" alt="Chongqing 2020" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border-4 border-white">
+    </div>
     <div class="glass p-6 rounded-2xl">
       <h2 class="text-2xl font-semibold text-blue-600 mb-4">Qualità dell'Aria</h2>
       <ul class="space-y-2 text-lg">
@@ -44,6 +48,9 @@
     <div class="glass p-6 rounded-2xl">
       <h2 class="text-2xl font-semibold text-blue-600 mb-6">Grafico: Principali Inquinanti nel 2020</h2>
       <canvas id="pollutionChart2020" height="280"></canvas>
+    </div>
+    <div class="text-center">
+      <a href="index.html" class="text-blue-600 font-semibold hover:underline">&larr; Torna all'Archivio</a>
     </div>
   </div>
 
@@ -83,6 +90,18 @@
           }
         }
       }
+    });
+
+    // Modal image zoom
+    const img = document.getElementById('img2020');
+    const modal = document.getElementById('modalImg2020');
+
+    img.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    modal.addEventListener('click', () => {
+      modal.classList.add('hidden');
     });
   </script>
 </body>

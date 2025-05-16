@@ -15,6 +15,11 @@
 <body class="text-gray-800">
   <div class="max-w-4xl mx-auto px-6 py-12 space-y-12">
     <h1 class="text-4xl text-center font-extrabold text-blue-800">Statistiche Cittadine – Chongqing 2000</h1>
+    <img src="images/2000.png" alt="Chongqing 2000" id="img2000" class="mx-auto my-6 rounded-lg shadow-lg max-w-full h-auto cursor-zoom-in">
+    <!-- Modal per l'immagine ingrandita -->
+    <div id="modalImg2000" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+      <img src="images/2000.png" alt="Chongqing 2000" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border-4 border-white">
+    </div>
     <div class="glass p-6 rounded-2xl">
       <h2 class="text-2xl font-semibold text-blue-600 mb-4">Qualità dell'Aria</h2>
       <ul class="space-y-2 text-lg">
@@ -75,6 +80,18 @@
           }
         }
       }
+    });
+
+    // Modal image zoom
+    const img = document.getElementById('img2000');
+    const modal = document.getElementById('modalImg2000');
+
+    img.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    modal.addEventListener('click', () => {
+      modal.classList.add('hidden');
     });
   </script>
 </body>

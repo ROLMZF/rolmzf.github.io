@@ -8,42 +8,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
     }
+    html, body {
+      height: auto !important;
+      min-height: 100%;
+      overflow: auto !important;
+    }
     .glass {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .glass:hover {
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+      transform: translateY(-4px) scale(1.01);
+    }
+    .section-title {
+      letter-spacing: -1px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
   </style>
 </head>
-<body class="relative text-gray-800 overflow-hidden">
+<body class="relative text-gray-800 min-h-screen overflow-auto">
   <!-- Background Video (same as index) -->
-  <video autoplay muted loop playsinline class="fixed top-0 left-0 w-full h-full object-cover z-[-1]">
+  <video autoplay muted loop playsinline class="fixed top-0 left-0 w-full h-full object-cover -z-10">
     <source src="video/video.mp4" type="video/mp4">
     Il tuo browser non supporta il tag video.
   </video>
+  <div class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 z-[-1]"></div>
 
-  <div class="max-w-6xl mx-auto px-4 py-16 space-y-16 relative z-10">
+  <div class="max-w-6xl mx-auto px-4 py-16 space-y-16 relative z-20">
     <header class="text-center" data-aos="fade-down">
-      <h1 class="text-5xl font-bold text-white drop-shadow">Trasformazione Urbana di Chongqing</h1>
+      <h1 class="text-5xl font-bold text-white drop-shadow section-title">Trasformazione Urbana di Chongqing</h1>
       <p class="text-lg text-gray-200 mt-2">Un viaggio visivo dal 1980 al 2020</p>
     </header>
 
+    <!-- NUOVA SEZIONE DESCRIZIONE STORICA E AMBIENTALE -->
+    <section class="glass rounded-3xl p-8 md:p-12 mt-10" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-900 mb-4 text-center section-title">Chongqing: storia, crescita e ambiente</h2>
+      <p class="text-lg text-gray-800 mb-4">
+        La città di Chongqing, situata nel sud-ovest della Cina, ha origini antiche che risalgono a oltre 3.000 anni fa. Durante il periodo Bà (1046–256 a.C.) era già un insediamento strategico lungo il fiume Yangtze. Il nome attuale, Chongqing, che significa "Doppia Celebrazione", le fu assegnato nel 1189 d.C. dall’imperatore Zhao Dun della dinastia Song del Sud, in occasione della sua doppia promozione imperiale.
+      </p>
+      <p class="text-gray-800 text-lg mb-2">
+        Oggi Chongqing è una delle quattro municipalità cinesi direttamente controllate dal governo centrale e conta oltre 30 milioni di abitanti nell’area metropolitana, rendendola una delle megalopoli più popolose al mondo.
+      </p>
+      <p class="text-gray-800 text-lg mb-2">
+        Lo sviluppo industriale rapido ha comportato gravi conseguenze ambientali. Chongqing è considerata una delle città più inquinate della Cina. Le principali fonti di inquinamento includono le industrie chimiche e siderurgiche, il traffico veicolare intenso e l’uso di carbone per il riscaldamento nelle aree periferiche. Secondo il rapporto IQAir World Air Quality Report 2023, la città ha registrato livelli medi annuali di PM2.5 superiori a 40 µg/m³, ben oltre il limite raccomandato dall’Organizzazione Mondiale della Sanità, pari a 5 µg/m³. Questi livelli pongono seri rischi per la salute respiratoria e cardiovascolare della popolazione.
+      </p>
+      <p class="text-gray-800 text-lg">
+        Negli ultimi anni, sono stati avviati piani per migliorare la qualità dell’aria e contenere le emissioni, ma la sfida di conciliare crescita economica e sostenibilità resta molto complessa.
+      </p>
+    </section>
+
     <!-- Back to Home Button -->
     <div class="text-center" data-aos="fade-up">
-      <a href="index.html" class="inline-block bg-white text-blue-900 font-semibold px-6 py-3 rounded-xl shadow-lg backdrop-blur-md transition hover:bg-blue-700 hover:text-white">
+      <a href="index.html" class="inline-block bg-white text-blue-900 font-semibold px-6 py-3 rounded-xl shadow-lg backdrop-blur-md transition hover:scale-105 hover:shadow-2xl hover:bg-blue-700 hover:text-white duration-200">
         ⬅ Torna alla Home
       </a>
     </div>
 
-    <section class="glass rounded-3xl p-6" data-aos="fade-up">
-      <h2 class="text-3xl font-semibold text-blue-900 mb-6 text-center">Timelapse della Città</h2>
+    <section class="glass rounded-3xl p-8 md:p-12" data-aos="fade-up">
+      <h2 class="text-3xl font-semibold text-blue-900 mb-6 text-center section-title">Timelapse della Città</h2>
       <div class="aspect-video w-full max-w-4xl mx-auto">
         <video controls class="w-full rounded-2xl shadow-lg">
           <source src="video/timelapse.mp4" type="video/mp4">
@@ -51,9 +89,28 @@
         </video>
       </div>
       <p class="mt-6 text-center text-white text-lg">Guarda come Chongqing si è trasformata da una città industriale degli anni '80 a una metropoli moderna e verticale nel 2020. Questo timelapse cattura decenni di crescita urbanistica, sviluppo infrastrutturale e trasformazione ambientale.</p>
+      <p class="text-lg text-gray-800 mb-4 text-center">
+        Chongqing, una delle città più grandi della Cina, ha affrontato negli ultimi decenni importanti sfide legate all'inquinamento atmosferico. La rapida industrializzazione e urbanizzazione hanno portato a livelli elevati di particolato (PM2.5 e PM10), biossido di zolfo (SO₂), ossidi di azoto (NOₓ) e ozono troposferico (O₃).
+      </p>
+      <p class="mt-6 text-center text-white text-lg">
     </section>
+
+    <!-- Sezione Ricerca Qualità dell'Aria -->
+    <section class="glass rounded-3xl p-8 md:p-12 mt-12" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold text-blue-900 mb-4 text-center section-title">Ricerca sulla Qualità dell'Aria a Chongqing</h2>
+      
+      <p class="mt-4 text-sm text-gray-500 text-center">
+        Fonti: <a href="https://aqicn.org/city/chongqing/" target="_blank" class="underline text-blue-700">AQICN Chongqing</a>, <a href="https://www.who.int/data/gho/data/themes/air-pollution" target="_blank" class="underline text-blue-700">OMS</a>
+      </p>
+    </section>
+
+    <footer class="pt-12 text-center text-gray-400 text-sm fade-in">
+      &copy; 2025 Chongqing Air Quality • Progetto didattico
+    </footer>
   </div>
 
-  <script>AOS.init();</script>
+  <script>
+    AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic' });
+  </script>
 </body>
 </html>
